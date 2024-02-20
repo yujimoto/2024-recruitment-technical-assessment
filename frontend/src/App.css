@@ -1,0 +1,136 @@
+html,body{
+  margin: 0;
+  padding: 0;
+}
+
+.homepage-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+.sidebar-wrapper{
+
+  width: 80px;
+  height: 100vh;
+  margin-left: 0;
+
+}
+
+.logo-img{
+  height: 35px;
+  margin-top: 20px;
+}
+.sidebar-top-wrapper{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 25px;
+}
+.sidebar-icons{
+  height: 25px;
+}
+
+.sidebar-bottom-wrapper{
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 500px;
+}
+
+.homepage-main-sec-wrapper{
+  margin-left: 150px;
+  width: 80%;
+}
+.homepage-title-sec{
+  display: flex;
+  flex-direction: column;
+  
+}
+.homepage-main-sec-wrapper h3{
+  font-weight: 100;
+  margin-bottom: 0px;
+}
+
+.homepage-main-sec-wrapper h1{
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 3px;
+  margin-bottom: 1px;
+  color: rgb(18, 121, 242);
+}
+
+.homepage-main-sec-wrapper h4{
+  margin-top: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.dropdown-container{
+  margin-top: 10px;
+}
+.searhbar-wrapper{
+  width: 100%;
+  border: 1px solid rgb(73, 149, 237);
+  height: 30px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.searhbar-wrapper input{
+  width: 95%;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  
+}
+
+.searhbar-wrapper img{
+  height: 20px;
+  margin-left: 10px;
+  
+}
+
+.searhbar-wrapper input:focus {
+  outline: none;
+}
+.coruse-card-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 50px;
+}
+.coruse-card-wrapper:hover{
+  cursor: pointer;
+}
+.course-card-ind-wrapper{
+  width: 450px;
+ border-radius: 5px;
+  border-bottom: 1px solid rgb(189, 188, 188);
+}
+.terms-wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;  
+  
+  margin-bottom: 10px;
+  margin-top: 50px;
+  
+}
+.term-container{
+  font-size: 13px;
+  text-align: center;
+  border-radius: 40px;
+  background-color: rgb(182, 217, 241);
+  width: 50px;
+   
+  
+}
