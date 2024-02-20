@@ -3,21 +3,93 @@
  * Task 1
  */
 function leafFiles(files) {
-    return [];
+    const parentIds = new Set(files.map(file => file.parent));
+    return files.filter(file => !parentIds.has(file.id)).map(file => file.name);
 }
 
 /**
- * Task 1
+ * Task 2
  */
 function kLargestCategories(files, k) {
-    return [];
+    const categoryCounts = {};
+    files.forEach(file => {
+        file.categories.forEach(category => {
+            if (category in categoryCounts) {
+                categoryCounts[category]++;
+            } else {
+                categoryCounts[category] = 1;
+            }
+        });
+    });
+    return Object.entries(categoryCounts)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])) // Add secondary alphabetical sort
+    .slice(0, k)
+    .map(entry => entry[0]);
 }
 
 /**
- * Task 1
+ * Task 3
  */
+function calculateTotalSizes(files) {
+    const sizes = {}; // Store total size for each file ID
+    const children = {}; // Map parent ID to list of child file IDs
+
+    // Initialize sizes with own size and children map
+    files.forEach(file => {
+        sizes[file.id] = file.size;
+        children[file.id] = [];
+    });
+
+    // Build the children map
+    files.forEach(file => {
+        if (file.parent !== -1) {
+            children[file.parent].push(file.id);
+        }
+    });
+
+    // Calculate total sizes
+    Object.keys(children).forEach(fileId => {
+        addChildrenSizes(parseInt(fileId));
+    });
+    function addChildrenSizes(fileId) {
+        // Iterate over each child of the current file
+        children[fileId].forEach(childId => {
+            // Add the child's total size (including its own children) to the current file's size
+            console.log(childId,fileId)
+            sizes[fileId] += addChildrenSizes(childId);
+            
+        });
+        // Return the total size of the current file (including all its descendants)
+        return sizes[fileId];
+    }
+    // function addChildrenSizes(fileId,childrenId) {
+    //     if (childrenId != null) {
+    //         children[childrenId].forEach(childId => {
+    //             sizes[fileId] += addChildrenSizes(fileId,childId); // Add child sizes recursively
+    //             console.log(childrenId,fileId)
+    //             //console.log(fileId)
+    //         });
+            
+    //         return sizes[fileId];
+    //     } else {
+    //         children[fileId].forEach(childId => {
+    //             sizes[fileId] += addChildrenSizes(fileId,childId); // Add child sizes recursively
+    //             console.log(childId,fileId)
+    //             //console.log(fileId)
+    //         });
+            
+    //         return sizes[fileId];
+    //     }
+    // }
+    //  console.log(sizes)
+    //  console.log(children)
+    return sizes;
+}
+
 function largestFileSize(files) {
-    return 0;
+    if (files.length === 0) return 0;
+    const totalSizes = calculateTotalSizes(files);
+    return Math.max(...Object.values(totalSizes)); // Find the largest total size
 }
 
 
@@ -66,5 +138,5 @@ console.assert(arraysEqual(
     kLargestCategories(testFiles, 3),
     ["Documents", "Folder", "Media"]
 ));
-
+console.log(largestFileSize(testFiles))
 console.assert(largestFileSize(testFiles) == 20992)
