@@ -7,23 +7,46 @@ const HomePageCard = () => {
             {term}
         </div>)))
     }
+    function renderStars(averageStars) {
+        // Round the averageStars to the nearest whole number
+        const roundedStars = Math.round(averageStars);
+        let stars = [];
+        for (let i = 1; i <= 5; i++) {
+          stars.push(
+            <span
+              key={i}
+              className={i <= roundedStars ? 'star-filled' : 'star'}
+            >
+              ★
+            </span>
+          );
+        }
+        return <>{stars}</>;
+      }
+    
   return (
     <div className='coruse-card-wrapper'>
         {courseArray.map(course => (<>
-        <div className='course-card-ind-wrapper'>
+        <div className='course-card-ind-wrapper'style={{display:'flex',flexDirection:'col'}}>
             <div>
-                <h2>{course.course_prefix + course.course_code}</h2>
-                <p>{course.course_title}</p>
+                <div>
+                    <div className='title-review-sec'>
+                        <h2>{course.course_prefix + course.course_code}</h2>
+                        <div className='review-sec'>
+                            <div className='review-sec-stars'>
+                                {renderStars(course.average_stars)}
+                            </div>
+                            <p> {course.total_reviews} reviews</p>
+                        </div>
+                    </div>
+                    <p>{course.course_title}</p>
+                </div>
+                <div className='terms-wrapper'>
+                    {termComp(course.offered_terms)}
+                </div>
             </div>
-            <div className='terms-wrapper'>
-                {termComp(course.offered_terms)}
-            </div>
-            <div>
-                
-                <p> {course.total_reviews} reviews</p>
-            
-            </div>
-            </div></>))}
+        </div>
+        </>))}
     </div>
   )
 }
