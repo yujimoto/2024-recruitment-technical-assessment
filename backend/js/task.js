@@ -55,7 +55,7 @@ function calculateTotalSizes(files) {
         // Iterate over each child of the current file
         children[fileId].forEach(childId => {
             // Add the child's total size (including its own children) to the current file's size
-            console.log(childId,fileId)
+            //console.log(childId,fileId)
             sizes[fileId] += addChildrenSizes(childId);
             
         });
@@ -133,10 +133,13 @@ console.assert(arraysEqual(
         "Video.mp4"
     ]
 ));
-
+console.assert(
+    kLargestCategories(testFiles, 2),
+    ["Documents", "Folder", "Media","Programming"]
+);
 console.assert(arraysEqual(
     kLargestCategories(testFiles, 3),
     ["Documents", "Folder", "Media"]
 ));
-console.log(largestFileSize(testFiles))
+// console.log(largestFileSize(testFiles))
 console.assert(largestFileSize(testFiles) == 20992)

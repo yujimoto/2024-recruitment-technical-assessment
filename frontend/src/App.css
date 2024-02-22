@@ -47,20 +47,41 @@ html,body{
 .homepage-title-sec{
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   
 }
 .homepage-main-sec-wrapper h3{
   font-weight: 100;
   margin-bottom: 0px;
 }
-
-.homepage-main-sec-wrapper h1{
+.title-blue{
   font-size: 70px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 3px;
   margin-bottom: 1px;
-  color: rgb(18, 121, 242);
+  color: #1279f2;
+  cursor: pointer;
+}
+
+.title-red{
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 3px;
+  margin-bottom: 1px;
+  color: #f21212;
+  cursor: pointer;
+}
+
+.title-yellow{
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 3px;
+  margin-bottom: 1px;
+  color: #c2f330;
+  cursor: pointer;
 }
 
 .homepage-main-sec-wrapper h4{
@@ -72,7 +93,7 @@ html,body{
   margin-top: 10px;
 }
 .searhbar-wrapper{
-  width: 100%;
+  width: 95%;
   border: 1px solid rgb(73, 149, 237);
   height: 30px;
   margin-top: 20px;
@@ -103,10 +124,11 @@ html,body{
 }
 .coruse-card-wrapper{
   display: flex;
-  flex-direction: row;
+  width: 100%;
   flex-wrap: wrap;
   gap: 50px;
   margin-top: 50px;
+  
 }
 .coruse-card-wrapper:hover{
   cursor: pointer;
@@ -115,6 +137,7 @@ html,body{
   width: 450px;
  border-radius: 5px;
   border-bottom: 1px solid rgb(189, 188, 188);
+  
 }
 .terms-wrapper{
   display: flex;
@@ -133,4 +156,37 @@ html,body{
   width: 50px;
    
   
+}
+
+.star-filled{
+  color: #b066d5;
+  font-size: 30px;
+}
+
+.star{
+  color: rgb(211, 211, 211);
+  font-size: 30px;
+}
+.title-review-sec{
+  display: flex;
+  flex-direction: row;
+  
+}
+.title-review-sec h2{
+  font-weight: bold;
+}
+
+.review-sec{
+  
+  display: flex;
+  flex-direction: column;
+  margin-left: 50%;
+}
+
+.review-sec p{
+  margin-bottom: 0px;
+}
+
+.review-sec-stars{
+  margin-top: 0px;
 }
