@@ -25,7 +25,7 @@ const HomePageCard = () => {
       }
     
   return (
-    <div className='coruse-card-wrapper'>
+    <div className='course-card-wrapper'>
         {courseArray.map(course => (<>
         <div className='course-card-ind-wrapper'style={{display:'flex',flexDirection:'col'}}>
             <div>

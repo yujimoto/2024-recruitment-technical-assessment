@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import serachicon from '../assets/magnify.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
 const HomepageSearchComp = () => {
+  const [searching, setSearching] = useState(false)
+  function handleSearchClick() {
+    setSearching(prev => !prev)
+
+  }
   return (
  
         <div className='searchandsort-wrapper'>
-          <div className='searhbar-wrapper' >
+          <div className='searchbar-wrapper' >
             <img src={serachicon} alt="" />
-            <input placeholder="Search for a course e.g. COMP1511" type="text" />
+            <input className='searchbar-input' onClick={handleSearchClick} placeholder="Search for a course e.g. COMP1511" type="text" />
           </div> 
+          {searching && (<><div className='search-overlay'>
+            <div className='search-result-div'>
+              <button onClick={handleSearchClick} > Close</button>
+              </div>
+            </div></>)}
           <div className='dropdown-container'>
-            <Dropdown>
-              <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+            <Dropdown >
+              <Dropdown.Toggle className='dropdown-sort' variant="secondary" id="dropdown-basic">
                 Sort by   
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -24,6 +34,7 @@ const HomepageSearchComp = () => {
           </Dropdown>
     </div>
         </div>
+        
    
   )
 }
