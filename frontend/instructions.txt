@@ -1,2 +1,2 @@
 Please detail the instructions to view your solution here:
-
+cd into /frontend and npm install then npm run dev.

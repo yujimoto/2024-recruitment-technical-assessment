@@ -31,8 +31,9 @@ function kLargestCategories(files, k) {
  * Task 3
  */
 function calculateTotalSizes(files) {
-    const sizes = {}; // Store total size for each file ID
+    const sizes = {}; // Store initial size for each file ID
     const children = {}; // Map parent ID to list of child file IDs
+    const calculated = {}; // Memorization: Store calculated total sizes
 
     // Initialize sizes with own size and children map
     files.forEach(file => {
@@ -47,44 +48,32 @@ function calculateTotalSizes(files) {
         }
     });
 
+    //recursion :))
+    function addChildrenSizes(fileId) {
+        // Check if total size has already been calculated to avoid recalculation
+        if (calculated[fileId] !== undefined) {
+            return calculated[fileId];
+        }
+        children[fileId].forEach(childId => {
+            sizes[fileId] += addChildrenSizes(childId);
+        });
+
+        // After calculating, store this total size to prevent future recalculations
+        calculated[fileId] = sizes[fileId];
+
+        // Return the total size of the current file (including all its descendants)
+        return sizes[fileId];
+    }
+
     // Calculate total sizes
     Object.keys(children).forEach(fileId => {
         addChildrenSizes(parseInt(fileId));
     });
-    function addChildrenSizes(fileId) {
-        // Iterate over each child of the current file
-        children[fileId].forEach(childId => {
-            // Add the child's total size (including its own children) to the current file's size
-            //console.log(childId,fileId)
-            sizes[fileId] += addChildrenSizes(childId);
-            
-        });
-        // Return the total size of the current file (including all its descendants)
-        return sizes[fileId];
-    }
-    // function addChildrenSizes(fileId,childrenId) {
-    //     if (childrenId != null) {
-    //         children[childrenId].forEach(childId => {
-    //             sizes[fileId] += addChildrenSizes(fileId,childId); // Add child sizes recursively
-    //             console.log(childrenId,fileId)
-    //             //console.log(fileId)
-    //         });
-            
-    //         return sizes[fileId];
-    //     } else {
-    //         children[fileId].forEach(childId => {
-    //             sizes[fileId] += addChildrenSizes(fileId,childId); // Add child sizes recursively
-    //             console.log(childId,fileId)
-    //             //console.log(fileId)
-    //         });
-            
-    //         return sizes[fileId];
-    //     }
-    // }
-    //  console.log(sizes)
-    //  console.log(children)
+
+    console.log(sizes);
     return sizes;
 }
+
 
 function largestFileSize(files) {
     if (files.length === 0) return 0;
