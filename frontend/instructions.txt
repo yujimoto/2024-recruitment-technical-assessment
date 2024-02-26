@@ -1,2 +1,5 @@
 Please detail the instructions to view your solution here:
 cd into /frontend and npm install then npm run dev. It will run on locahost:5173
+**
+ps Didnt know if i had to make the page responsive so the styling is based on my home pc screen size (using smaller 
+screens may change the format of the review cards (2 col instead of 3 for exp) etc*/
