@@ -70,7 +70,6 @@ function calculateTotalSizes(files) {
         addChildrenSizes(parseInt(fileId));
     });
 
-    console.log(sizes);
     return sizes;
 }
 
@@ -130,5 +129,5 @@ console.assert(arraysEqual(
     kLargestCategories(testFiles, 3),
     ["Documents", "Folder", "Media"]
 ));
-// console.log(largestFileSize(testFiles))
+
 console.assert(largestFileSize(testFiles) == 20992)

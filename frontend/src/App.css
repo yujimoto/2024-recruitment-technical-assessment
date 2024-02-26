@@ -184,7 +184,7 @@ html,body{
   font-size: 13px;
   text-align: center;
   border-radius: 40px;
-  background-color: rgb(182, 217, 241);
+  background-color: rgb(204 235 246);
   width: 50px;
    
   
@@ -205,7 +205,7 @@ html,body{
   
 }
 .title-review-sec h2{
-  font-weight: bold;
+  font-weight: 1000;
 }
 
 .review-sec{
